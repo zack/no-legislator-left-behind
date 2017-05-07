@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
+gem 'breadcrumbs_on_rails', '~> 3.0.1'
 gem 'faker', '~> 1.7'
 gem 'puma', '~> 3.8'
 gem 'rails', '~> 5.0'

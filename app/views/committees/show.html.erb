@@ -1,3 +1,9 @@
-<h1> Committee </h1>
-
-<%= @committee.name %>
+<h3> Committee Members: </h3>
+<% @members.each do |member| %>
+  <% legislator = Legislator.find(member.legislator_id) %>
+  <% if @committee.body === 'Joint' %>
+    <%= legislator.name %> (<%= legislator.body[0] %>) <br/>
+  <% else %>
+    <%= legislator.name %> <br/>
+  <% end %>
+<% end %>

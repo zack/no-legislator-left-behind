@@ -6,4 +6,8 @@ class Legislator < ApplicationRecord
 
   validates :body, inclusion: { in: ApplicationHelper.legislative_bodies }
   validates :state, inclusion: { in: ApplicationHelper.us_states }
+
+  def name
+    first_name + ' ' + last_name
+  end
 end
