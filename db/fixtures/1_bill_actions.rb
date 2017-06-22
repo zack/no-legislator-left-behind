@@ -2,7 +2,7 @@ def maybe
   [true, false].sample
 end
 
-2000.times do
+5000.times do
   bill_id = rand(1..500)
   bill = Bill.find(bill_id)
   action_date = Faker::Date.between("#{bill.session}-01-01", "#{bill.session}-12-31")

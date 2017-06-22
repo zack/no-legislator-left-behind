@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424181059) do
+ActiveRecord::Schema.define(version: 20170621234920) do
 
   create_table "bill_actions", force: :cascade do |t|
     t.date     "action_date",    null: false
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20170424181059) do
     t.string   "state",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "party"
+    t.string   "district"
   end
 
 end
