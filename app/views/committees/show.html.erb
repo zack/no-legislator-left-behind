@@ -1,22 +1,22 @@
-<table>
+<table class="committee">
   <thead>
     <tr>
-      <th> Committee Membership </th>
+      <th colspan=<%= @parties.length%>> Committee Membership </th>
     </tr>
     <tr>
-      <% @legislator_parties.each do |party| %>
-        <th> <%= party %> </th>
+      <% @parties.each do |p| %>
+        <th class=<%=p%>> <%= p %> </th>
       <% end %>
     </tr>
   </thead>
   <tbody>
     <% @table_len.times do |i| %>
       <tr>
-        <% @legislator_parties.each do |p| %>
+        <% @parties.each do |p| %>
           <% if @committee.body === "Joint" %>
-            <td> <%= "#{@members[p][i].name} (#{@members[p][i].body[0]})" if @members[p][i] %></td>
+            <td class=<%=p%>> <%= "#{@members[p][i].name} (#{@members[p][i].body[0]})" if @members[p][i] %></td>
           <% else %>
-            <td> <%= @members[p][i].name if @members[p][i] %></td>
+            <td class=<%=p%>> <%= @members[p][i].name if @members[p][i] %></td>
           <% end %>
         <% end %>
       </tr>

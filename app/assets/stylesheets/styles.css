@@ -1,0 +1,52 @@
+table.committee {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 10px;
+}
+
+table.committee th {
+  border: 1px solid black;
+}
+
+table.committee tr:first-child th {
+  background-color: #CFCFCF;
+  border: none;
+}
+
+table.committee th {
+  background-color: rgba(255, 255, 0, .4);
+}
+
+table.committee th.Democrat {
+  background-color: rgba(0, 0, 255, .4);
+}
+
+table.committee th.Republican {
+  background-color: rgba(255, 0, 0, .4);
+}
+
+table.committee th.Independent {
+  background-color: rgba(255, 0, 255, .4);
+}
+
+table.committee td {
+  border: 1px solid black;
+  width: 250px;
+}
+
+table.committee td {
+  background-color: rgba(255, 255, 0, .2);
+}
+
+table.committee td.Democrat {
+  background-color: rgba(0, 0, 255, .2);
+}
+
+table.committee td.Republican {
+  background-color: rgba(255, 0, 0, .2);
+}
+
+table.committee td.Independent {
+  background-color: rgba(255, 0, 255, .2);
+}

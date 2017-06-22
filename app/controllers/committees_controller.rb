@@ -22,13 +22,13 @@ class CommitteesController < ApplicationController
 
     legislators = CommitteeMembership.where(committee_id: params[:id])
       .map{|m| Legislator.find(m.legislator.id)}
-    @legislator_parties = legislators.map{|l| l.party }.uniq
+    @parties = legislators.map{|l| l.party }.uniq.shuffle
     @members = {}
-    @legislator_parties.each{ |p| @members[p] = [] }
+    @parties.each{ |p| @members[p] = [] }
     legislators.each{ |l| @members[l.party].push(l) }
-    @legislator_parties.each do |p|
+    @parties.each do |p|
       @members[p] = @members[p].sort{|x, y| x.last_name <=> y.last_name}
     end
-    @table_len = @legislator_parties.map{|p| @members[p].length}.max
+    @table_len = @parties.map{|p| @members[p].length}.max
   end
 end
