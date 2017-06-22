@@ -1,0 +1,18 @@
+<div id="legislator-index">
+  <div class="body">
+    <div class="header"> House </div>
+    <ul>
+      <% @legislators.where(body: :House).each do |legislator| %>
+        <li> <%= link_to "#{legislator.name} (#{legislator.party[0]})", legislator %> <br/> </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="body">
+    <div class="header"> Senate </div>
+    <ul>
+      <% @legislators.where(body: :Senate).each do |legislator| %>
+        <li> <%= link_to "#{legislator.name} (#{legislator.party[0]})", legislator %> <br/> </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

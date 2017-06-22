@@ -4,7 +4,9 @@ class CommitteesController < ApplicationController
   def index
     @state = params[:state]
 
-    add_breadcrumb "Committees (#{@state})"
+    add_breadcrumb "States", states_path
+    add_breadcrumb @state, state_path(@state)
+    add_breadcrumb "Committees"
 
     all_committees = Committee.where(state: params[:state])
     @committees = {
@@ -17,8 +19,10 @@ class CommitteesController < ApplicationController
   def show
     @committee = Committee.find(params[:id])
 
-    add_breadcrumb "Committees (#{@committee.state})", committees_path(state: @committee.state)
-    add_breadcrumb "#{@committee.name} (#{@committee.body})"
+    add_breadcrumb "States", states_path
+    add_breadcrumb @committee.state, state_path(@committee.state)
+    add_breadcrumb "Committees", committees_path(state: @committee.state)
+    add_breadcrumb @committee.name
 
     legislators = CommitteeMembership.where(committee_id: params[:id])
       .map{|m| Legislator.find(m.legislator.id)}

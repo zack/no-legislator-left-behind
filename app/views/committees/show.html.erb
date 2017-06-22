@@ -1,33 +1,44 @@
-<table class="committee">
-  <thead>
-    <tr>
-      <th colspan=<%= @parties.length%>> Committee Membership </th>
-    </tr>
-    <tr>
-      <% @parties.each do |p| %>
-        <th class=<%=p%>> <%= p %> </th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @table_len.times do |i| %>
+<div id="committee-show">
+  <h2> Committee: <%= "#{@committee.name} (#{@committee.body})"%> </h2>
+
+  <hr>
+
+  <div class="center">
+    <h3> Committee Membership </h3>
+  </div>
+
+  <table class="committee-membership">
+    <thead>
       <tr>
         <% @parties.each do |p| %>
-          <td class=<%=p%>>
-            <div class="name">
-            <% if @committee.body === "Joint" %>
-              <%= "#{@members[p][i].name} (#{@members[p][i].body[0]})" if @members[p][i] %>
-            <% else %>
-              <%= @members[p][i].name if @members[p][i] %>
-            <% end %>
-            </div>
-            <div class="district">
-              <em> <%= @members[p][i].district if @members[p][i] %> </em>
-            <div>
-          </td>
+          <th class=<%=p%>> <%= p %> </th>
         <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @table_len.times do |i| %>
+        <tr>
+          <% @parties.each do |p| %>
+            <% if @members[p][i] %>
+              <td class=<%=p%>>
+                <% member = @members[p][i] %>
+                <div class="name">
+                  <% if @committee.body === "Joint" %>
+                    <%= link_to "#{member.name} (#{member.body[0]})", member %>
+                  <% else %>
+                    <%= link_to member.name, member%>
+                  <% end %>
+                </div>
+                <div class="district">
+                  <em> <%= member.district %> </em>
+                </div>
+              </td>
+            <% else %>
+              <td class="empty"></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

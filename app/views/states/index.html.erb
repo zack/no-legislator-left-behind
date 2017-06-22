@@ -1,0 +1,9 @@
+<div id="state-index">
+  <h3> <em> Development note: All seed data is under MA </em> </h3>
+
+  <% us_states.each do |state| %>
+    <div class="state">
+      <%= link_to state, state_url(state) %>
+    </div>
+  <% end %>
+</div>

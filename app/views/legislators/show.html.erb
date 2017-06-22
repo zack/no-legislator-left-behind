@@ -1,0 +1,43 @@
+<div id="legislator-show">
+  <h2> Legislator: <%= "#{@legislator.name} (#{@legislator.body}-#{@legislator.party[0]})" %> </h2>
+  <div class="district"> <%= @legislator.district %> </div>
+
+  <hr>
+
+  <div class="center">
+    <h3> Committee Membership </h3>
+  </div>
+
+  <table class="committees">
+    <thead>
+      <tr>
+        <% if @committees[:body].length > 0 %>
+          <th> <%= @legislator.body %> </th>
+        <% end %>
+        <% if @committees[:joint].length > 0 %>
+          <th> Joint </th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @table_len.times do |i| %>
+        <tr>
+          <% if @committees[:body].length > 0 %>
+            <% if @committees[:body][i] %>
+              <td> <%= link_to @committees[:body][i].name, @committees[:body][i] %> </td>
+            <% else %>
+              <td class="empty"></td>
+            <% end %>
+          <% end %>
+
+          <% if @committees[:joint].length > 0 %>
+            <% if @committees[:joint][i] %>
+              <td> <%= link_to @committees[:joint][i].name, @committees[:joint][i] %> </td>
+            <% else %>
+              <td class="empty"></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

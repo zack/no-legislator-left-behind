@@ -3,7 +3,46 @@
  */
 
 body {
+  margin: 15px auto;
+  overflow-y: scroll;
   width: 900px;
+}
+
+
+h1 {
+  font-size: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 10px 0 0;
+}
+
+hr {
+  background-image: linear-gradient(to right, black, rgba(0,0,0,0));
+  border: 0;
+  height: 1px;
+  margin-bottom: 15px;
+}
+
+hr.short {
+  margin-bottom: 5px;
+  background-image: linear-gradient(to right, black, rgba(0,0,0,0), rgba(0,0,0,0));
 }
 
 a {
@@ -16,8 +55,56 @@ a:hover {
   transition: linear .2s all;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+li {
+  color: blue;
+  overflow: hidden;
+  padding-bottom: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+table {
+  table-layout: fixed;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+table th {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  font-size: 18px;
+  padding: 5px 0;
+}
+
+table td {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid black;
+  padding: 3px 0;
+}
+
+table td.empty {
+  background-color: transparent;
+  border: none;
+}
+
 #breadcrumbs {
-  margin: -20px 0px 25px 10px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.center {
+  text-align: center;
 }
 
 /*
@@ -32,99 +119,122 @@ a:hover {
 }
 
 /*
- * State page
+ * Committees index
  */
 
-#committees .header {
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
+#committee-index {
+  white-space: nowrap;
 }
 
-#committees .body {
+#committee-index .body {
   display: inline-block;
   vertical-align: top;
   width: 33%;
 }
 
-#committees .body ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-#committees li {
-  color: blue;
-  overflow: hidden;
-  padding-bottom: 5px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-#committees li:hover {
+#committee-index li:hover {
   color: blue;
   text-shadow: 0px 0px 2px green;
   transition: linear .2s all;
 }
 
 /*
- * Committee page
+ * Committee show
  */
 
-table.committee {
-  border-collapse: collapse;
-  text-align: center;
-}
-
-table.committee th {
-  border: 1px solid black;
-  padding: 5px 0;
-}
-
-table.committee tr:first-child th {
-  background-color: rgba(0,0,0,0);
-  border: none;
-  padding: 10px 0;
-}
-
-table.committee th {
+table.committee-membership th {
   background-color: #FFF9C4;
 }
-
-table.committee th.Democrat {
+table.committee-membership th.Democrat {
   background-color: #BBDEFB;
 }
 
-table.committee th.Republican {
+table.committee-membership th.Republican {
   background-color: #FFCDD2;
 }
 
-table.committee th.Independent {
+table.committee-membership th.Independent {
   background-color: #E1BEE7;
 }
 
-table.committee td {
-  border: 1px solid black;
-  padding: 3px 0;
-  width: 250px;
-}
-
-table.committee td {
+table.committee-membership td {
   background-color: #FFFDE7;
 }
 
-table.committee td.Democrat {
+table.committee-membership td.empty {
+  background-color: transparent;
+}
+
+table.committee-membership td.Democrat {
   background-color: #E3F2FD;
 }
 
-table.committee td.Republican {
+table.committee-membership td.Republican {
   background-color: #FFEBEE;
 }
 
-table.committee td.Independent {
+table.committee-membership td.Independent {
   background-color: #F3E5F5;
 }
 
-table.committee td .district {
+table.committee-membership td .district {
+  font-style: italic;
   font-size: 12px;
+}
+
+/*
+ * Legislators page
+ */
+
+
+#legislator-index {
+  white-space: nowrap;
+}
+
+#legislator-index .body {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+
+#legislator-index li:hover {
+  color: blue;
+  text-shadow: 0px 0px 2px green;
+  transition: linear .2s all;
+}
+
+#legislator-show h2 {
+  margin-bottom: 0;
+}
+
+#legislator-show .district {
+  font-style: italic;
+}
+
+#legislator-show #committee-index {
+  white-space: nowrap;
+}
+
+#legislator-show #committee-index .body {
+  width: 50%;
+}
+
+/*
+ * State page
+ */
+
+#state-show {
+  white-space: nowrap;
+}
+
+#state-show #legislators {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+
+#state-show #committees {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
 }
