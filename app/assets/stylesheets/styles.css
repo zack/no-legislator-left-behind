@@ -1,52 +1,130 @@
+/*
+ * Site-wide style settings
+ */
+
+body {
+  width: 900px;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 0px 0px 2px green;
+  transition: linear .2s all;
+}
+
+#breadcrumbs {
+  margin: -20px 0px 25px 10px;
+}
+
+/*
+ * Homepage
+ */
+
+.state {
+  display: inline-block;
+  font-size: 24px;
+  margin: 10px 0px;
+  width: 10%;
+}
+
+/*
+ * State page
+ */
+
+#committees .header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#committees .body {
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
+}
+
+#committees .body ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#committees li {
+  color: blue;
+  overflow: hidden;
+  padding-bottom: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#committees li:hover {
+  color: blue;
+  text-shadow: 0px 0px 2px green;
+  transition: linear .2s all;
+}
+
+/*
+ * Committee page
+ */
+
 table.committee {
-  border: 1px solid black;
   border-collapse: collapse;
   text-align: center;
-  margin: 10px;
 }
 
 table.committee th {
   border: 1px solid black;
+  padding: 5px 0;
 }
 
 table.committee tr:first-child th {
-  background-color: #CFCFCF;
+  background-color: rgba(0,0,0,0);
   border: none;
+  padding: 10px 0;
 }
 
 table.committee th {
-  background-color: rgba(255, 255, 0, .4);
+  background-color: #FFF9C4;
 }
 
 table.committee th.Democrat {
-  background-color: rgba(0, 0, 255, .4);
+  background-color: #BBDEFB;
 }
 
 table.committee th.Republican {
-  background-color: rgba(255, 0, 0, .4);
+  background-color: #FFCDD2;
 }
 
 table.committee th.Independent {
-  background-color: rgba(255, 0, 255, .4);
+  background-color: #E1BEE7;
 }
 
 table.committee td {
   border: 1px solid black;
+  padding: 3px 0;
   width: 250px;
 }
 
 table.committee td {
-  background-color: rgba(255, 255, 0, .2);
+  background-color: #FFFDE7;
 }
 
 table.committee td.Democrat {
-  background-color: rgba(0, 0, 255, .2);
+  background-color: #E3F2FD;
 }
 
 table.committee td.Republican {
-  background-color: rgba(255, 0, 0, .2);
+  background-color: #FFEBEE;
 }
 
 table.committee td.Independent {
-  background-color: rgba(255, 0, 255, .2);
+  background-color: #F3E5F5;
+}
+
+table.committee td .district {
+  font-size: 12px;
 }

@@ -8,9 +8,9 @@ class CommitteesController < ApplicationController
 
     all_committees = Committee.where(state: params[:state])
     @committees = {
-      house: all_committees.where({body: 'House'}),
-      joint: all_committees.where({body: 'Joint'}),
-      senate: all_committees.where({body: 'Senate'})
+      house: all_committees.where({body: 'House'}).order('name'),
+      joint: all_committees.where({body: 'Joint'}).order('name'),
+      senate: all_committees.where({body: 'Senate'}).order('name')
     }
   end
 

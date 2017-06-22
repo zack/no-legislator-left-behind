@@ -13,11 +13,18 @@
     <% @table_len.times do |i| %>
       <tr>
         <% @parties.each do |p| %>
-          <% if @committee.body === "Joint" %>
-            <td class=<%=p%>> <%= "#{@members[p][i].name} (#{@members[p][i].body[0]})" if @members[p][i] %></td>
-          <% else %>
-            <td class=<%=p%>> <%= @members[p][i].name if @members[p][i] %></td>
-          <% end %>
+          <td class=<%=p%>>
+            <div class="name">
+            <% if @committee.body === "Joint" %>
+              <%= "#{@members[p][i].name} (#{@members[p][i].body[0]})" if @members[p][i] %>
+            <% else %>
+              <%= @members[p][i].name if @members[p][i] %>
+            <% end %>
+            </div>
+            <div class="district">
+              <em> <%= @members[p][i].district if @members[p][i] %> </em>
+            <div>
+          </td>
         <% end %>
       </tr>
     <% end %>

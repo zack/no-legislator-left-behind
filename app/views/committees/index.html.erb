@@ -1,14 +1,28 @@
-<h3> House </h3>
-<% @committees[:house].each do |committee| %>
-  <%= link_to committee.name, committee_path(committee.id) %> <br/>
-<% end %>
+<div id="committees">
+  <div class="body">
+    <div class="header"> House </div>
+    <ul>
+      <% @committees[:house].each do |committee| %>
+        <li> <%= link_to committee.name, committee_path(committee.id) %> <br/> </li>
+      <% end %>
+    </ul>
+  </div>
 
-<h3> Senate </h3>
-<% @committees[:senate].each do |committee| %>
-  <%= link_to committee.name, committee_path(committee.id) %> <br/>
-<% end %>
+  <div class="body">
+    <div class="header"> Senate </div>
+    <ul>
+      <% @committees[:senate].each do |committee| %>
+        <li> <%= link_to committee.name, committee_path(committee.id) %> <br/> </li>
+      <% end %>
+    </ul>
+  </div>
 
-<h3> Joint </h3>
-<% @committees[:joint].each do |committee| %>
-  <%= link_to committee.name, committee_path(committee.id) %> <br/>
-<% end %>
+  <div class="body">
+    <div class="header"> Joint </div>
+    <ul>
+      <% @committees[:joint].each do |committee| %>
+        <li> <%= link_to committee.name, committee_path(committee.id) %> <br/> </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

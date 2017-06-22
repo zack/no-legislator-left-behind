@@ -5,6 +5,6 @@
     l.last_name = Faker::Name.last_name
     l.state = 'MA'
     l.party = rand > 0.05 ? ['Democrat', 'Republican'].sample : 'Independent'
-    l.district = "#{rand(25)}"
+    l.district = "#{rand(25).ordinalize} district"
   end
 end
