@@ -1,9 +1,26 @@
-<h3> Committee Members: </h3>
-<% @members.each do |member| %>
-  <% legislator = Legislator.find(member.legislator_id) %>
-  <% if @committee.body === 'Joint' %>
-    <%= legislator.name %> (<%= legislator.body[0] %>) <br/>
-  <% else %>
-    <%= legislator.name %> <br/>
-  <% end %>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th> Committee Membership </th>
+    </tr>
+    <tr>
+      <% @legislator_parties.each do |party| %>
+        <th> <%= party %> </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @table_len.times do |i| %>
+      <tr>
+        <% @legislator_parties.each do |p| %>
+          <% if @committee.body === "Joint" %>
+            <td> <%= "#{@members[p][i].name} (#{@members[p][i].body[0]})" if @members[p][i] %></td>
+          <% else %>
+            <td> <%= @members[p][i].name if @members[p][i] %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
