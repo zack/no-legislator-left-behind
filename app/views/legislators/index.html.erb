@@ -1,15 +1,16 @@
-<div id="legislator-index">
+<div id="legislators-index" class="nowrap">
   <div class="body">
-    <div class="header"> House </div>
-    <ul>
+    <h3> House </h3>
+    <ul class="links">
       <% @legislators.where(body: :House).each do |legislator| %>
         <li> <%= link_to "#{legislator.name} (#{legislator.party[0]})", legislator %> <br/> </li>
       <% end %>
     </ul>
   </div>
+
   <div class="body">
-    <div class="header"> Senate </div>
-    <ul>
+    <h3> Senate </h3>
+    <ul class="links">
       <% @legislators.where(body: :Senate).each do |legislator| %>
         <li> <%= link_to "#{legislator.name} (#{legislator.party[0]})", legislator %> <br/> </li>
       <% end %>

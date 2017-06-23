@@ -1,0 +1,25 @@
+#legislators-index {
+  .body {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+}
+
+#legislator-show  {
+  h2 {
+    margin-bottom: 0;
+  }
+
+  .district {
+    font-style: italic;
+  }
+
+  #committee-index {
+    white-space: nowrap;
+  }
+
+  #committee-index .body {
+    width: 50%;
+  }
+}

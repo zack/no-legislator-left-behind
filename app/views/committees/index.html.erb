@@ -1,7 +1,7 @@
 <div id="committee-index">
   <div class="body">
-    <div class="header"> House </div>
-    <ul>
+    <h3> House </h3>
+    <ul class="links">
       <% @committees[:house].each do |committee| %>
         <li> <%= link_to committee.name, committee_path(committee.id) %> <br/> </li>
       <% end %>
@@ -9,8 +9,8 @@
   </div>
 
   <div class="body">
-    <div class="header"> Senate </div>
-    <ul>
+    <h3> Senate </h3>
+    <ul class="links">
       <% @committees[:senate].each do |committee| %>
         <li> <%= link_to committee.name, committee_path(committee.id) %> <br/> </li>
       <% end %>
@@ -18,8 +18,8 @@
   </div>
 
   <div class="body">
-    <div class="header"> Joint </div>
-    <ul>
+    <h3> Joint </h3>
+    <ul class="links">
       <% @committees[:joint].each do |committee| %>
         <li> <%= link_to committee.name, committee_path(committee.id) %> <br/> </li>
       <% end %>

@@ -1,0 +1,118 @@
+/*
+ * Site-wide style settings
+ */
+
+body {
+  margin: 15px auto;
+  overflow-y: scroll;
+  width: 900px;
+}
+
+
+h1 {
+  font-size: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 10px 0 0;
+}
+
+hr {
+  background-image: linear-gradient(to right, black, rgba(0,0,0,0));
+  border: 0;
+  height: 1px;
+  margin-bottom: 15px;
+}
+
+hr.short {
+  margin-bottom: 5px;
+  background-image: linear-gradient(to right, black, rgba(0,0,0,0), rgba(0,0,0,0));
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 0px 0px 2px green;
+  transition: linear .2s all;
+}
+
+table {
+  table-layout: fixed;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+table th {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  font-size: 18px;
+  padding: 5px 0;
+}
+
+table td {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid black;
+  padding: 3px 0;
+}
+
+table td.empty {
+  background-color: transparent;
+  border: none;
+}
+
+ul.links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    color: blue;
+    cursor: pointer;
+    overflow: hidden;
+    padding-bottom: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:hover {
+      text-shadow: 0px 0px 2px green;
+      transition: linear .2s all;
+    }
+  }
+}
+
+#breadcrumbs {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+.nowrap {
+  white-space: nowrap;
+}

@@ -1,0 +1,22 @@
+#states-index {
+  .state {
+    display: inline-block;
+    font-size: 24px;
+    margin: 10px 0;
+    width: 10%;
+  }
+}
+
+#state-show {
+  #legislators {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+  }
+
+  #committees {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+  }
+}
