@@ -1,12 +1,15 @@
-1000.times do
-  start_date = Faker::Date.between("2009-01-01", "2017-12-31")
-  legislator = Legislator.find(rand(1..1000))
-  body = [legislator.body, 'Joint'].sample
+Legislator.where(state: 'MA').each do |l|
+  (rand(1)+5).times do
+    c = Committee.where(state: 'MA', body: [l.body, 'Joint']).sample
+    start_date = Faker::Date.between("2009-01-01", "2017-12-31")
 
-  CommitteeMembership.seed do |c|
-    c.committee_id = Committee.where(body: body).to_a.sample.id
-    c.end_date = Faker::Date.between(start_date, "2017-12-13") if [true, false].sample
-    c.legislator_id = legislator.id
-    c.start_date = start_date
+    if CommitteeMembership.where(committee_id: c.id, legislator_id: l.id).length === 0
+      CommitteeMembership.seed do |m|
+        m.committee_id = c.id
+        m.end_date = Faker::Date.between(start_date, "2017-12-13") if [true, false].sample
+        m.legislator_id = l.id
+        m.start_date = start_date
+      end
+    end
   end
 end

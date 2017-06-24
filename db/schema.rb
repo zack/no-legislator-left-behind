@@ -13,53 +13,53 @@
 ActiveRecord::Schema.define(version: 20170621234920) do
 
   create_table "bill_actions", force: :cascade do |t|
-    t.date     "action_date",    null: false
-    t.date     "scheduled_date"
-    t.integer  "becomes_bill"
-    t.integer  "bill_id",        null: false
-    t.string   "action",         null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.date "action_date", null: false
+    t.date "scheduled_date"
+    t.integer "becomes_bill"
+    t.integer "bill_id", null: false
+    t.string "action", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "bills", force: :cascade do |t|
-    t.integer  "reintroduces"
-    t.integer  "session",      null: false
-    t.string   "body",         null: false
-    t.string   "number",       null: false
-    t.string   "state",        null: false
-    t.string   "title",        null: false
-    t.text     "description",  null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer "reintroduces"
+    t.integer "session", null: false
+    t.string "body", null: false
+    t.string "number", null: false
+    t.string "state", null: false
+    t.string "title", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "committee_memberships", force: :cascade do |t|
-    t.date     "end_date"
-    t.date     "start_date",    null: false
-    t.integer  "committee_id",  null: false
-    t.integer  "legislator_id", null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.date "end_date"
+    t.date "start_date", null: false
+    t.integer "committee_id", null: false
+    t.integer "legislator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "committees", force: :cascade do |t|
-    t.string   "body",       null: false
-    t.string   "name",       null: false
-    t.string   "state",      null: false
+    t.string "body", null: false
+    t.string "name", null: false
+    t.string "state", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "legislators", force: :cascade do |t|
-    t.string   "body",       null: false
-    t.string   "first_name", null: false
-    t.string   "last_name",  null: false
-    t.string   "state",      null: false
+    t.string "body", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "state", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "party"
-    t.string   "district"
+    t.string "party"
+    t.string "district"
   end
 
 end
