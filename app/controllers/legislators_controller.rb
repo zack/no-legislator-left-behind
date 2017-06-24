@@ -19,10 +19,7 @@ class LegislatorsController < ApplicationController
     add_breadcrumb "Legislators", legislators_path(state: @legislator.state)
     add_breadcrumb @legislator.name
 
-    committee_memberships = CommitteeMembership.where(legislator: @legislator)
-    committees = committee_memberships.map{|c| Committee.find(c.committee_id)}
-    @committees = {:body => [], :joint => []}
-    committees.each{|c| c.body == 'Joint' ? @committees[:joint].push(c) : @committees[:body].push(c)}
-    @table_len = [@committees[:body].length, @committees[:joint].length].max
+    committee_memberships = CommitteeMembership.where(legislator: @legislator, end_date: nil)
+    @committees = committee_memberships.map{|c| Committee.find(c.committee_id)}
   end
 end

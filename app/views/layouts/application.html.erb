@@ -2,18 +2,20 @@
 <html>
   <head>
     <title>No Legislator Left Behind</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <h1> No Legislator Left Behind </h1>
-    <hr class="short">
-    <div id="breadcrumbs">
-      <%= render_breadcrumbs %>
+    <div id="o" class="container">
+      <h1> No Legislator Left Behind </h1>
+      <div id="breadcrumbs">
+        <%= render_breadcrumbs %>
+      </div>
+      <hr>
+      <%= yield %>
     </div>
-    <%= yield %>
   </body>
 </html>

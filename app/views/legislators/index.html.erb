@@ -1,19 +1,45 @@
-<div id="legislators-index" class="nowrap">
-  <div class="body">
-    <h3> House </h3>
-    <ul class="links">
-      <% @legislators.where(body: :House).each do |legislator| %>
-        <li> <%= link_to "#{legislator.name} (#{legislator.party[0]})", legislator %> <br/> </li>
-      <% end %>
-    </ul>
-  </div>
+<div id="legislators-index">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="text-center">
+        <h2> <%= ApplicationHelper.state_name(params[:state]) %> Legislators </h2>
+      </div>
+    </div>
 
-  <div class="body">
-    <h3> Senate </h3>
-    <ul class="links">
-      <% @legislators.where(body: :Senate).each do |legislator| %>
-        <li> <%= link_to "#{legislator.name} (#{legislator.party[0]})", legislator %> <br/> </li>
-      <% end %>
-    </ul>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text-center">
+            <h3> House </h3>
+          </div>
+
+          <hr>
+
+          <% @legislators.where(body: :House).each do |legislator| %>
+            <a class="btn btn-default btn-block"
+               role="button"
+               href= <%= legislator_path(legislator) %>>
+              <%= "#{legislator.name} (#{legislator.party[0]})"  %>
+            </a>
+          <% end %>
+        </div>
+
+        <div class="col-md-6">
+          <div class="text-center">
+            <h3> Senate </h3>
+          </div>
+
+          <hr>
+
+          <% @legislators.where(body: :Senate).each do |legislator| %>
+            <a class="btn btn-default btn-block"
+               role="button"
+               href= <%= legislator_path(legislator) %>>
+              <%= "#{legislator.name} (#{legislator.party[0]})"  %>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

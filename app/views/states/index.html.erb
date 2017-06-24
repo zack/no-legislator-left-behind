@@ -1,9 +1,12 @@
 <div id="states-index">
-  <h3> <em> Development note: All seed data is under MA </em> </h3>
+  <div class="alert alert-warning" role="alert">
+    <strong> Development Note:</strong> All seed data is under
+    <%= link_to "MA", state_path("MA") %>.
+  </div>
 
   <% us_states.each do |state| %>
-    <div class="state">
-      <%= link_to state, state_url(state) %>
-    </div>
+    <a class="btn btn-default state pull-left" href=<%= state_path(state) %> role="button">
+      <%= state %>
+    </a>
   <% end %>
 </div>

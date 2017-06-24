@@ -1,43 +1,54 @@
 <div id="legislator-show">
-  <h2> Legislator: <%= "#{@legislator.name} (#{@legislator.body}-#{@legislator.party[0]})" %> </h2>
-  <div class="district"> <%= @legislator.district %> </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="text-center">
+        <h2>
+          <%= "#{@legislator.name} (#{@legislator.party[0]})" %>
+          <div class="small">
+            <%= @legislator.body === "Senate" ? "Senator " : "Representative, #{@legislator.district}"%>
+          </div>
+        </h2>
+      </div>
+    </div>
 
-  <hr>
+    <div class="panel-body">
+      <div class="text-center">
+        <h3> Committee Membership </h3>
+      </div>
 
-  <div class="center">
-    <h3> Committee Membership </h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text-center">
+            <h3> <%= @legislator.body %> </h3>
+          </div>
+
+          <hr>
+
+          <% @committees.select{|c| c.body === @legislator.body}.each do |c| %>
+            <a class="btn btn-default btn-block"
+               role="button"
+               href= <%= committee_path(c) %>>
+              <%= c.name %>
+            </a>
+          <% end %>
+        </div>
+
+        <div class="col-md-6">
+          <div class="text-center">
+            <h3> Joint </h3>
+          </div>
+
+          <hr>
+
+          <% @committees.select{|c| c.body === "Joint"}.each do |c| %>
+            <a class="btn btn-default btn-block"
+               role="button"
+               href= <%= committee_path(c) %>>
+              <%= c.name %>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <table class="committees">
-    <thead>
-      <tr>
-        <% if @committees[:body].length > 0 %>
-          <th> <%= @legislator.body %> </th>
-        <% end %>
-        <% if @committees[:joint].length > 0 %>
-          <th> Joint </th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @table_len.times do |i| %>
-        <tr>
-          <% if @committees[:body].length > 0 %>
-            <% if @committees[:body][i] %>
-              <td> <%= link_to @committees[:body][i].name, @committees[:body][i] %> </td>
-            <% else %>
-              <td class="empty"></td>
-            <% end %>
-          <% end %>
-
-          <% if @committees[:joint].length > 0 %>
-            <% if @committees[:joint][i] %>
-              <td> <%= link_to @committees[:joint][i].name, @committees[:joint][i] %> </td>
-            <% else %>
-              <td class="empty"></td>
-            <% end %>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+</div>

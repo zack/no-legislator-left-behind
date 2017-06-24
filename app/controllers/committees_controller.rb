@@ -8,12 +8,7 @@ class CommitteesController < ApplicationController
     add_breadcrumb @state, state_path(@state)
     add_breadcrumb "Committees"
 
-    all_committees = Committee.where(state: params[:state])
-    @committees = {
-      house: all_committees.where({body: 'House'}).order('name'),
-      joint: all_committees.where({body: 'Joint'}).order('name'),
-      senate: all_committees.where({body: 'Senate'}).order('name')
-    }
+    @committees = Committee.where(state: params[:state]).order('name')
   end
 
   def show

@@ -1,118 +1,145 @@
-/*
- * Site-wide style settings
- */
-
 body {
-  margin: 15px auto;
-  overflow-y: scroll;
-  width: 900px;
+  background-color: #264653 !important;
 }
 
+#o {
+  color: white;
+  font-family: Ubuntu, Arial, sans-serif;
 
-h1 {
-  font-size: 36px;
-  margin: 0;
-  padding: 0;
-}
-
-h2 {
-  font-size: 28px;
-  margin: 0;
-  padding: 0;
-}
-
-h3 {
-  font-size: 24px;
-  margin: 0;
-  padding: 0;
-}
-
-h4 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0 10px 0 0;
-}
-
-hr {
-  background-image: linear-gradient(to right, black, rgba(0,0,0,0));
-  border: 0;
-  height: 1px;
-  margin-bottom: 15px;
-}
-
-hr.short {
-  margin-bottom: 5px;
-  background-image: linear-gradient(to right, black, rgba(0,0,0,0), rgba(0,0,0,0));
-}
-
-a {
-  color: blue;
-  text-decoration: none;
-}
-
-a:hover {
-  text-shadow: 0px 0px 2px green;
-  transition: linear .2s all;
-}
-
-table {
-  table-layout: fixed;
-}
-
-table {
-  border-collapse: collapse;
-  margin-top: 10px;
-  text-align: center;
-  width: 100%;
-}
-
-table th {
-  background-color: rgba(0, 0, 0, 0.2);
-  border: 1px solid black;
-  font-size: 18px;
-  padding: 5px 0;
-}
-
-table td {
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 1px solid black;
-  padding: 3px 0;
-}
-
-table td.empty {
-  background-color: transparent;
-  border: none;
-}
-
-ul.links {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-
-  li {
-    color: blue;
-    cursor: pointer;
-    overflow: hidden;
-    padding-bottom: 5px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  a {
+    color: #07A3C5;
+    font-weight: bold;
 
     &:hover {
-      text-shadow: 0px 0px 2px green;
-      transition: linear .2s all;
+      color: #00C1EC;
+      text-shadow: 0px 0px 2px rgb(0, 50, 150);
+      text-decoration: none;
+      transition: all .1s linear;
+    }
+
+    &.btn {
+      color: white;
+
+      &:hover{
+        text-shadow: none;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+        transition: all .1s linear;
+      }
     }
   }
-}
 
-#breadcrumbs {
-  font-size: 14px;
-  margin-bottom: 20px;
-}
+  a.state {
+    background-color: #FC7753;
+    border: 1px solid #A14C35;
+    margin: 20px;
+    padding: 40px;
+    width: 175px;
 
-.center {
-  text-align: center;
-}
+    &:hover {
+      background-color: #FC9C81;
+    }
+  }
 
-.nowrap {
-  white-space: nowrap;
+  ul {
+    list-style: none;
+  }
+
+  a.btn {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .alert-warning {
+    background-color: #ffed8f;
+    border-color: #ffac00;
+    color: #ab6e05;
+  }
+
+  .jumbotron {
+    background-color: #617881;
+  }
+
+  .panel {
+    background-color: #7B9EA8;
+    border: 1px solid #171D1F;
+
+    .panel-heading {
+      color: white;
+      background-color: #203A44;
+      border-bottom: 1px solid #171D1F;
+    }
+
+    .panel-body {
+      a.btn {
+        background-color: #D7DDDF;
+        color: #123F53;
+
+        &:hover {
+          background-color: #EBEEEF;
+        }
+      }
+    }
+  }
+
+  #state-show {
+    a.btn {
+      padding: 3%;
+      margin-bottom: 15px;
+      font-size: x-large;
+    }
+  }
+
+  #committee-show {
+    table.committee-membership {
+      border: none;
+      color: black;
+
+      a:hover {
+        text-shadow: 0px 0px 2px rgba(0, 50, 150, .5);
+      }
+
+      th {
+        background-color: #FFF9C4;
+        border: 1px solid black;
+        text-align: center;
+
+        &.Democrat {
+          background-color: #BBDEFB;
+        }
+
+        &.Republican {
+          background-color: #FFCDD2;
+        }
+
+        &.Independent {
+          background-color: #E1BEE7;
+        }
+      }
+
+      td {
+        background-color: #FFFDE7;
+        border: 1px solid black;
+        height: 57px;
+        text-align: center;
+
+        &.empty {
+          background-color: transparent;
+          border: none;
+        }
+
+        &.Democrat {
+          background-color: #E3F2FD;
+        }
+
+        &.Republican {
+          background-color: #FFEBEE;
+        }
+
+        &.Independent {
+          background-color: #F3E5F5;
+        }
+      }
+    }
+  }
 }
