@@ -1,7 +1,38 @@
-<div id="welcome">
-  <h2> Placeholder welcome page </h2>
+<div id="welcome-index">
+  <div class="jumbotron">
+    <h2> What is <em>No Legislator Left Behind</em> ? </h2>
 
-  <hr>
+    <hr>
 
-  <h3> <%= link_to "See all states", states_path %> </h3>
+    <p>
+    <em> No Legislator Left Behind </em> is a site dedicated to making sure
+    that legislators and their committees are doing their job. Namely, that
+    they are hearing and voting on bills in an appropriate volume and
+    timeframe.
+    </p>
+
+    <p>
+    Before a bill can get to the floor of a legislative body, it must be voted
+    on by a committee. Certain bills, depending on their substance, could be
+    submitted to one of multiple committees. Take, for instance, a bill aimed
+    at reducing car emissions. This bill could reasonably be sent to a an
+    environental committee or a transportation committee. If your goal is to
+    get your emissions reduction bill to the floor of the House, and the
+    transportation committee tends to get more done than the environmental
+    committee, then perhaps that could inform your decision on making a
+    recommendation to a committee.
+    </p>
+
+    <p>
+    It is our hope that this website, which takes open data from
+    <a href="#"> some website or other </a>, will be a useful tool to citizens
+    looking to have legislation seen and passed by their state legislators.
+    </p>
+
+    <hr>
+
+    <p><a class="btn btn-primary btn-lg" href=<%=states_path%> role="button">
+      Find Your State
+    </a></p>
+  </div>
 </div>

@@ -1,9 +1,26 @@
-<div id="state-show" class="nowrap">
-  <div id="legislators">
-    <h3> <%= link_to "Legislators", legislators_url(state: params[:state]) %>
-  </div>
+<div id="state-show">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="text-center">
+        <h2> <%= ApplicationHelper.state_name(params[:state]) %> </h2>
+      </div>
+    </div>
 
-  <div id="committees">
-    <h3> <%= link_to "Committees", committees_url(state: params[:state]) %>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <a class="btn btn-default btn-block"
+             href=<%= committees_path(params[:state]) %>
+           role="button">
+           Committees
+          </a>
+          <a class="btn btn-default btn-block"
+             href=<%= legislators_path(params[:state]) %>
+           role="button">
+           Legislators
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

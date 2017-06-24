@@ -1,28 +1,61 @@
-<div id="committee-index">
-  <div class="body">
-    <h3> House </h3>
-    <ul class="links">
-      <% @committees[:house].each do |committee| %>
-        <li> <%= link_to committee.name, committee_path(committee.id) %> <br/> </li>
-      <% end %>
-    </ul>
-  </div>
+<div id="committees-index">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="text-center">
+        <h2> <%= ApplicationHelper.state_name(params[:state]) %> Committees </h2>
+      </div>
+    </div>
 
-  <div class="body">
-    <h3> Senate </h3>
-    <ul class="links">
-      <% @committees[:senate].each do |committee| %>
-        <li> <%= link_to committee.name, committee_path(committee.id) %> <br/> </li>
-      <% end %>
-    </ul>
-  </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="text-center">
+            <h3> House </h3>
+          </div>
 
-  <div class="body">
-    <h3> Joint </h3>
-    <ul class="links">
-      <% @committees[:joint].each do |committee| %>
-        <li> <%= link_to committee.name, committee_path(committee.id) %> <br/> </li>
-      <% end %>
-    </ul>
+          <hr>
+
+          <% @committees.where(body: :House).each do |committee| %>
+            <a class="btn btn-default btn-block"
+               role="button"
+               href= <%= committee_path(committee) %>>
+              <%= committee.name %>
+            </a>
+          <% end %>
+        </div>
+
+        <div class="col-md-4">
+          <div class="text-center">
+            <h3> Senate </h3>
+          </div>
+
+          <hr>
+
+          <% @committees.where(body: :Senate).each do |committee| %>
+            <a class="btn btn-default btn-block"
+               role="button"
+               href= <%= committee_path(committee) %>>
+              <%= committee.name %>
+            </a>
+          <% end %>
+        </div>
+
+        <div class="col-md-4">
+          <div class="text-center">
+            <h3> Joint </h3>
+          </div>
+
+          <hr>
+
+          <% @committees.where(body: :Joint).each do |committee| %>
+            <a class="btn btn-default btn-block"
+               role="button"
+               href= <%= committee_path(committee) %>>
+              <%= committee.name %>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
