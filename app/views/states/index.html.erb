@@ -4,9 +4,13 @@
     <%= link_to "MA", state_path("MA") %>.
   </div>
 
-  <% us_states.each do |state| %>
-    <a class="btn btn-default state pull-left" href=<%= state_path(state) %> role="button">
-      <%= state %>
-    </a>
-  <% end %>
+  <div class="row">
+    <% us_states.each do |state| %>
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a class="btn btn-default state" href=<%= state_path(state) %> role="button">
+          <%= state %>
+        </a>
+      </div>
+    <% end %>
+  </div>
 </div>
