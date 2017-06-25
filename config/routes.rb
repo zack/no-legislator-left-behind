@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get 'legislator/:id', to: 'legislators#show', as: 'legislator'
 
   get 'states', to: 'states#index', as: 'states'
+  get 'state/', to: 'states#show', as: 'state_search'
   get 'state/:state', to: 'states#show', as: 'state'
 end

@@ -3,6 +3,9 @@ class StatesController < ApplicationController
 
   def index
     add_breadcrumb "States"
+    @select_options = ApplicationHelper.us_states.map do |s|
+      [ApplicationHelper.state_name(s), s]
+    end
   end
 
   def show

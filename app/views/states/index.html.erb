@@ -4,13 +4,24 @@
     <%= link_to "MA", state_path("MA") %>.
   </div>
 
-  <div class="row">
-    <% us_states.each do |state| %>
-      <div class="col-md-3 col-sm-4 col-xs-6">
-        <a class="btn btn-default state" href=<%= state_path(state) %> role="button">
-          <%= state %>
-        </a>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="text-center">
+        <h2> Select Your State</h2>
       </div>
-    <% end %>
+    </div>
+
+    <div class="panel-body">
+      <div class="row">
+        <form action="/state/", method: "get">
+          <div class="col-md-5 col-sm-8 col-xs-8 col-md-offset-3 col-sm-offset-1">
+            <%= select_tag("state", options_for_select(@select_options)) %>
+          </div>
+          <div class="col-md-1 col-sm-2 col-xs-4">
+            <input class="btn btn-primary" type="submit" value="Go!">
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

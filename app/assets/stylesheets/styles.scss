@@ -50,6 +50,10 @@ body {
     text-overflow: ellipsis;
   }
 
+  select {
+    color: black;
+  }
+
   .alert-warning {
     background-color: #ffed8f;
     border-color: #ffac00;
@@ -58,6 +62,14 @@ body {
 
   .jumbotron {
     background-color: #617881;
+
+    a:not(.btn) {
+      color: #337AB7;
+      text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+      &:hover {
+        color: #00C1EC;
+      }
+    }
   }
 
   .panel {
@@ -140,6 +152,17 @@ body {
           background-color: #F3E5F5;
         }
       }
+    }
+  }
+
+  #states-index {
+    input {
+      width: 100%;
+    }
+
+    select#state {
+      font-size: 22px;
+      width: 100%;
     }
   }
 }
