@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621234920) do
+ActiveRecord::Schema.define(version: 20170813213039) do
 
   create_table "bill_actions", force: :cascade do |t|
     t.date "action_date", null: false
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20170621234920) do
     t.string "action", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "bill_cosponsors", force: :cascade do |t|
+    t.integer "bill_id", null: false
+    t.integer "legislator_id", null: false
+  end
+
+  create_table "bill_sponsors", force: :cascade do |t|
+    t.integer "bill_id", null: false
+    t.integer "legislator_id", null: false
   end
 
   create_table "bills", force: :cascade do |t|
@@ -32,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170621234920) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "citizen_sponsored"
   end
 
   create_table "committee_memberships", force: :cascade do |t|

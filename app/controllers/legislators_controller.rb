@@ -21,5 +21,12 @@ class LegislatorsController < ApplicationController
 
     committee_memberships = CommitteeMembership.where(legislator: @legislator, end_date: nil)
     @committees = committee_memberships.map{|c| Committee.find(c.committee_id)}
+
+    bill_sponsorships = BillSponsor.where(legislator_id: @legislator)
+    sponsorships = bill_sponsorships.map{|s| Bill.find(s.bill_id)}
+    @sponsorships = sponsorships.keep_if{|s| !s.citizen_sponsored}
+
+    bill_cosponsorships = BillCosponsor.where(legislator_id: @legislator)
+    @cosponsorships = bill_cosponsorships.map{|c| Bill.find(c.bill_id)}
   end
 end

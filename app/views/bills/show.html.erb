@@ -1,0 +1,95 @@
+<div id="bill-show">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="text-center">
+        <h3>
+          <%= "#{@bill.title}" %>
+        </h3>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <% if @bill.citizen_sponsored %>
+        <div class="row col-md-12">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-warning text-center" role="alert">
+              <strong> Note:</strong> This bill is <em>citizen-sponsored</em> and
+              is not necessrily endorsed by <%= @sponsor.name %>.
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="text-center">
+          <h2> General Information </h2>
+          <div>
+            <div class="col-md-2 col-md-offset-4">
+              <div> <strong>State:</strong> <a href=<%= state_path(@bill.state) %>><%= @bill.state %></a> </div>
+              <div> <strong>Body</strong>: <%= @bill.body %> </div>
+            </div>
+            <div class="col-md-2">
+              <div> <strong>Number:</strong> <%= @bill.number %> </div>
+              <div> <strong>Session:</strong> <%= @bill.session %> </div>
+            </div>
+            <% if @bill.reintroduces %>
+              <div class="col-md-12 text-center">
+                  <div> <strong>Reintroduces:</strong> <a href=<%= bill_path(@bill.reintroduces) %>><%= Bill.find(@bill.reintroduces).number %></a> </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="text-center">
+          <h2> Description </h2>
+          <div>
+            <div class="col-md-6 col-md-offset-3">
+              <%= "#{@bill.description}" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="text-center">
+          <h2> Sponsor </h2>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="text-center">
+              <a class="btn btn-default btn-block"
+                 role="button"
+                 href= <%= legislator_path(@sponsor) %>>
+                <%= @sponsor.name %>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="text-center">
+          <h2> Cosponsors </h2>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="text-center">
+              <% @cosponsors.each do |s| %>
+                <% legislator = Legislator.find(s.legislator_id) %>
+                <a class="btn btn-default btn-block"
+                   role="button"
+                   href= <%= legislator_path(legislator) %>>
+                  <%= legislator.name %>
+                </a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

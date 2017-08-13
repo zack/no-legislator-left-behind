@@ -83,12 +83,20 @@ body {
     }
 
     .panel-body {
-      a.btn {
-        background-color: #D7DDDF;
-        color: #123F53;
+      a {
+        color: #2E6295;
 
         &:hover {
-          background-color: #EBEEEF;
+            color: #70C3E9
+        }
+
+        &.btn {
+          background-color: #D7DDDF;
+          color: #123F53;
+
+          &:hover {
+            background-color: #EBEEEF;
+          }
         }
       }
     }

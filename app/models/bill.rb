@@ -1,5 +1,7 @@
 class Bill < ApplicationRecord
   has_many :bill_actions
+  has_many :bill_sponsors, through: :bill_sponsors
+  has_many :bill_cosponsors, through: :bill_cosponsors
 
   validates_associated :bill_actions
 

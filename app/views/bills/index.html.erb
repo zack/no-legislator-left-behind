@@ -1,0 +1,45 @@
+<div id="bills-index">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="text-center">
+        <h2> <%= ApplicationHelper.state_name(params[:state]) %> Bills </h2>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text-center">
+            <h3> House </h3>
+          </div>
+
+          <hr>
+
+          <% @bills.where(body: :House).each do |bill| %>
+            <a class="btn btn-default btn-block"
+               role="button"
+               href= <%= bill_path(bill) %>>
+              <%= "#{bill.title} (#{bill.number})"  %>
+            </a>
+          <% end %>
+        </div>
+
+        <div class="col-md-6">
+          <div class="text-center">
+            <h3> Senate </h3>
+          </div>
+
+          <hr>
+
+          <% @bills.where(body: :Senate).each do |bill| %>
+            <a class="btn btn-default btn-block"
+               role="button"
+               href= <%= bill_path(bill) %>>
+              <%= "#{bill.title} (#{bill.number})"  %>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
